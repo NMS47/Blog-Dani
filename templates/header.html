@@ -20,6 +20,7 @@
 
   <!-- Custom styles for this template -->
   <link href="{{ url_for('static', filename='css/clean-blog.css')}}" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/8a7aff2801.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -35,7 +36,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('get_all_posts') }}">Home</a>
+            <a class="nav-link" href="{{ url_for('get_all_posts') }}">Inicio</a>
           </li>
           {% if not logged_in: %}
           <li class="nav-item">
