@@ -61,6 +61,7 @@ class BlogPost(db.Model):
     author = relationship('Users', back_populates='posts')
     title = db.Column(db.String(250), unique=True, nullable=False)
     subtitle = db.Column(db.String(250), nullable=False)
+    category = db.Column(db.String(250), nullable=False)
     date = db.Column(db.String(250), nullable=False)
     body = db.Column(db.Text, nullable=False)
     img_url = db.Column(db.String(250), nullable=False)
@@ -78,7 +79,7 @@ class Comment(db.Model):
     text = db.Column(db.Text, nullable=False)
 
 
-# db.create_all()
+db.create_all()
 
 
 class RegisterForm(FlaskForm):
@@ -209,6 +210,7 @@ def add_new_post():
         new_post = BlogPost(
             title=form.title.data,
             subtitle=form.subtitle.data,
+            category=form.category.data,
             body=form.body.data,
             img_url=form.img_url.data,
             author=current_user,
@@ -227,6 +229,7 @@ def edit_post(post_id):
     edit_form = CreatePostForm(
         title=post.title,
         subtitle=post.subtitle,
+        category=post.category,
         img_url=post.img_url,
         author=post.author,
         body=post.body
@@ -234,6 +237,7 @@ def edit_post(post_id):
     if edit_form.validate_on_submit():
         post.title = edit_form.title.data
         post.subtitle = edit_form.subtitle.data
+        post.category = edit_form.category.data
         post.img_url = edit_form.img_url.data
         post.author = edit_form.author.data
         post.body = edit_form.body.data
