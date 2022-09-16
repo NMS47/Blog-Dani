@@ -1,5 +1,4 @@
 import flask_login
-import requests
 from flask import Flask, render_template, redirect, url_for, flash, request, g
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor, CKEditorField

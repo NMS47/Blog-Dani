@@ -3,7 +3,14 @@
  * Copyright 2013-2020 Start Bootstrap
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-clean-blog/blob/master/LICENSE)
  */
-
+@font-face {
+    font-family: MoonTime;
+    src: url("../vendor/fontawesome-free/webfonts/MoonTime-Regular.ttf");
+                    }
+@font-face {
+    font-family: LibreFranklin;
+    src: url("../vendor/fontawesome-free/webfonts/LibreFranklin.ttf");
+                    }
 body {
   font-size: 20px;
   color: #212529;
@@ -167,11 +174,6 @@ img::-moz-selection {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-#mainNav .navbar-brand {
-  font-weight: 800;
-  color: #343a40;
-}
-
 #mainNav .navbar-toggler {
   font-size: 12px;
   font-weight: 800;
@@ -183,7 +185,7 @@ img::-moz-selection {
 #mainNav .navbar-nav > li.nav-item > a {
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
 }
 
@@ -243,11 +245,12 @@ img::-moz-selection {
 
 header.masthead {
   margin-bottom: 50px;
-  background: no-repeat center center;
+  padding-bottom: 10%;
   background-color: #868e96;
   background-attachment: scroll;
   position: relative;
   background-size: cover;
+
 }
 
 header.masthead .overlay {
@@ -257,7 +260,7 @@ header.masthead .overlay {
   height: 100%;
   width: 100%;
   background-color: #212529;
-  opacity: 0.5;
+  opacity: 0.1;
 }
 
 header.masthead .page-heading,
@@ -272,6 +275,7 @@ header.masthead .site-heading {
   header.masthead .post-heading,
   header.masthead .site-heading {
     padding: 200px 0;
+
   }
 }
 
@@ -281,19 +285,23 @@ header.masthead .site-heading {
 }
 
 header.masthead .page-heading h1,
+
 header.masthead .site-heading h1 {
+  font-family: MoonTime;
   font-size: 50px;
+  font-weight: 200;
   margin-top: 0;
 }
 
 header.masthead .page-heading .subheading,
 header.masthead .site-heading .subheading {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.1;
+  letter-spacing: .1rem;
   display: block;
   margin: 10px 0 0;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: LibreFranklin;
 }
 
 @media only screen and (min-width: 768px) {
