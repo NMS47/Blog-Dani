@@ -38,24 +38,23 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('get_all_posts') }}">Inicio</a>
           </li>
-          {% if not logged_in: %}
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('login') }}">Viajes</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('register') }}">Escalada</a>
           </li>
-          {% else: %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
-          </li>
-          {% endif %}
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('about') }}">Montañismo</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('contact') }}">Contacto</a>
           </li>
+          {% if logged_in: %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
+          </li>
+          {% endif %}
         </ul>
       </div>
     </div>

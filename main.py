@@ -34,7 +34,7 @@ gravatar = Gravatar(app,
                     base_url=None)
 
 ##CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dani-blog.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -44,8 +44,12 @@ class Users(UserMixin, db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(250), nullable=False, unique=True)
-    email = db.Column(db.String(250), nullable=False, unique=True)
+
     password = db.Column(db.String(250), nullable=False)
+    # This lines are for multiple users, if you want to upgrade the blog in the future. Currently is just for
+    # admin to post content
+
+    email = db.Column(db.String(250), nullable=False, unique=True)
     posts = relationship("BlogPost", back_populates="author")
     comments = relationship("Comment", back_populates="comment_author")
 
@@ -68,7 +72,7 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     author_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     comment_author = relationship("Users", back_populates="comments")
-    # ***************Child Relationship*************#
+    author = db.Column(db.String(50), nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey("blog_posts.id"))
     parent_post = relationship("BlogPost", back_populates="comments")
     text = db.Column(db.Text, nullable=False)
@@ -79,6 +83,7 @@ class Comment(db.Model):
 
 class RegisterForm(FlaskForm):
     username = StringField("Username", validators=[DataRequired()])
+
     email = StringField("Email", validators=[DataRequired(), Email()])
     password = PasswordField("Password", validators=[DataRequired(), Length(6)])
     submit = SubmitField('Register Now')
@@ -86,7 +91,7 @@ class RegisterForm(FlaskForm):
 
 class LoginForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired(), Email()])
-    password = PasswordField("Password, min 6 char", validators=[DataRequired(), Length(6)])
+    password = PasswordField("Password", validators=[DataRequired(), Length(6)])
     submit = SubmitField('Log In')
 
 
@@ -95,7 +100,7 @@ class AnonymousUser(AnonymousUserMixin):
 
 
 class CommentForm(FlaskForm):
-    # name = StringField("Name", validators=[DataRequired()])
+    name = StringField("Name", validators=[DataRequired()])
     comment = CKEditorField("Your comment")
     submit = SubmitField('Post Comment')
 
@@ -174,7 +179,6 @@ def logout():
 def show_post(post_id):
     requested_post = BlogPost.query.get(post_id)
     form = CommentForm()
-    print(requested_post.comments[0].comment_author.email)
     if form.validate_on_submit():
         new_comment = Comment(
             text=form.comment.data,

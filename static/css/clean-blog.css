@@ -14,7 +14,7 @@
 body {
   font-size: 20px;
   color: #212529;
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: LibreFranklin;
 }
 
 p {
@@ -385,6 +385,9 @@ header.masthead .post-heading .meta a {
   color: #0085A1;
 }
 
+.post-text{
+ font-family: LibreFranklin;
+}
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
     font-size: 36px;
