@@ -44,14 +44,12 @@ class Users(UserMixin, db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(250), nullable=False, unique=True)
-
     password = db.Column(db.String(250), nullable=False)
-    # This lines are for multiple users, if you want to upgrade the blog in the future. Currently is just for
-    # admin to post content
-
     email = db.Column(db.String(250), nullable=False, unique=True)
     posts = relationship("BlogPost", back_populates="author")
-    comments = relationship("Comment", back_populates="comment_author")
+    # This line is for multiple users, if you want to upgrade the blog in the future. Currently is just for
+    # admin to post content
+    # comments = relationship("Comment", back_populates="comment_author")
 
 
 class BlogPost(db.Model):
@@ -67,12 +65,13 @@ class BlogPost(db.Model):
     img_url = db.Column(db.String(250), nullable=False)
     comments = relationship('Comment', back_populates="parent_post")
 
-
+## TABLE FOR COMMENTS
 class Comment(db.Model):
     __tablename__ = "comments"
     id = db.Column(db.Integer, primary_key=True)
-    author_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    comment_author = relationship("Users", back_populates="comments")
+    # FOR MULTIUSERS
+    # author_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    # comment_author = relationship("Users", back_populates="comments")
     author = db.Column(db.String(50), nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey("blog_posts.id"))
     parent_post = relationship("BlogPost", back_populates="comments")
@@ -183,7 +182,7 @@ def show_post(post_id):
     if form.validate_on_submit():
         new_comment = Comment(
             text=form.comment.data,
-            comment_author=current_user,
+            author=form.name.data,
             parent_post=requested_post
         )
         db.session.add(new_comment)

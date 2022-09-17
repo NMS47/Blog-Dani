@@ -1,13 +1,13 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, RadioField
+from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, URL
 from flask_ckeditor import CKEditorField
 
 ##WTForm
 class CreatePostForm(FlaskForm):
-    title = StringField("Blog Post Title", validators=[DataRequired()])
-    subtitle = StringField("Subtitle", validators=[DataRequired()])
-    category = RadioField("Category", choices=['Viajes', 'Escalada', 'Montañismo'], validators=[DataRequired()])
-    img_url = StringField("Blog Image URL", validators=[DataRequired(), URL()])
-    body = CKEditorField("Blog Content", validators=[DataRequired()])
-    submit = SubmitField("Submit Post")
+    title = StringField("Título", validators=[DataRequired()])
+    subtitle = StringField("Subtitulo", validators=[DataRequired()])
+    category = SelectField(u"Categoría", choices=['Viajes', 'Escalada', 'Montañismo', 'Otra'])
+    img_url = StringField("URL de la imagen", validators=[DataRequired(), URL()])
+    body = CKEditorField("Contenido", validators=[DataRequired()])
+    submit = SubmitField("Subir Post")

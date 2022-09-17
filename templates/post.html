@@ -39,21 +39,19 @@
                         {% for comment in post.comments %}
                         <li>
                             <div class="commenterImage">
-                                <img src="{{ comment.comment_author.email | gravatar}}">
+                                <img src="{{ comment.author | gravatar}}">
                             </div>
                             <div class="commentText">
                                 <p>{{comment.text|safe}}</p>
-                                <span class="date sub-text">{{comment.comment_author.username}}</span>
+                                <span class="date sub-text">{{comment.author}}</span>
                             </div>
                         </li>
                         {% endfor%}
                     </ul>
                 </div>
-                {% if logged_in %}
                 {{ ckeditor.load(pkg_type="basic") }}
                 {{ ckeditor.config(name='comment') }}
                 {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
-                {% endif %}
             </div>
         </div>
     </div>
