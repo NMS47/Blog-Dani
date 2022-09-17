@@ -47,6 +47,7 @@ class Users(UserMixin, db.Model):
     password = db.Column(db.String(250), nullable=False)
     email = db.Column(db.String(250), nullable=False, unique=True)
     posts = relationship("BlogPost", back_populates="author")
+    date = db.Column(db.String(250), nullable=False)
     # This line is for multiple users, if you want to upgrade the blog in the future. Currently is just for
     # admin to post content
     # comments = relationship("Comment", back_populates="comment_author")
@@ -75,6 +76,7 @@ class Comment(db.Model):
     author = db.Column(db.String(50), nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey("blog_posts.id"))
     parent_post = relationship("BlogPost", back_populates="comments")
+    date = db.Column(db.String(20), nullable=False)
     text = db.Column(db.Text, nullable=False)
 
 
@@ -131,8 +133,7 @@ def load_user(user_id):
 @app.route('/')
 def get_all_posts():
     posts = BlogPost.query.all()
-    print(flask_login.current_user.id)
-    return render_template("index.html", all_posts=posts, logged_in=current_user.is_authenticated)
+    return render_template("index.html", all_posts=posts)
 
 
 @app.route('/register', methods=["GET", "POST"])
@@ -142,7 +143,8 @@ def register():
         new_user = Users(
             username=request.form.get("username"),
             email=request.form.get("email"),
-            password=generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8)
+            password=generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8),
+            date=date.today().strftime("%B %d, %Y")
         )
         db.session.add(new_user)
         db.session.commit()
@@ -183,23 +185,39 @@ def show_post(post_id):
         new_comment = Comment(
             text=form.comment.data,
             author=form.name.data,
-            parent_post=requested_post
+            parent_post=requested_post,
+            date=date.today().strftime("%B %d, %Y")
         )
         db.session.add(new_comment)
         db.session.commit()
         return redirect(url_for('show_post', post_id=requested_post.id))
-    return render_template("post.html", post=requested_post, logged_in=current_user.is_authenticated, form=form)
+    return render_template("post.html", post=requested_post, user=current_user.id, form=form)
 
 
 @app.route("/about")
 def about():
-    return render_template("about.html", logged_in=current_user.is_authenticated)
+    return render_template("about.html")
 
 
 @app.route("/contact")
 def contact():
-    return render_template("contact.html", logged_in=current_user.is_authenticated)
+    return render_template("contact.html")
 
+@app.route("/viajes")
+def viajes():
+    posts_viajes = BlogPost.query.filter_by(category='Viajes').all()
+    print(posts_viajes)
+    return render_template("viajes.html", posts=posts_viajes)
+
+@app.route("/montanismo")
+def montanismo():
+    posts_montanismo = BlogPost.query.filter_by(category='Montañismo').all()
+    return render_template("montanismo.html", posts=posts_montanismo)
+
+@app.route("/escalada")
+def escalada():
+    posts_escalada = BlogPost.query.filter_by(category='Escalada').all()
+    return render_template("escalada.html", posts=posts_escalada)
 
 @app.route("/new-post", methods=("GET", "POST"))
 @admin_only
@@ -230,15 +248,14 @@ def edit_post(post_id):
         subtitle=post.subtitle,
         category=post.category,
         img_url=post.img_url,
-        author=post.author,
-        body=post.body
+        body=post.body,
+        date=date.today().strftime("%B %d, %Y")
     )
     if edit_form.validate_on_submit():
         post.title = edit_form.title.data
         post.subtitle = edit_form.subtitle.data
         post.category = edit_form.category.data
         post.img_url = edit_form.img_url.data
-        post.author = edit_form.author.data
         post.body = edit_form.body.data
         db.session.commit()
         return redirect(url_for("show_post", post_id=post.id))

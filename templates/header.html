@@ -22,6 +22,9 @@
   <link href="{{ url_for('static', filename='css/clean-blog.css')}}" rel="stylesheet">
   <script src="https://kit.fontawesome.com/8a7aff2801.js" crossorigin="anonymous"></script>
 
+<!--  Favicon-->
+  <link rel="icon" type="image/png" sizes="32x32" href="static/img/favicon.ico">
+
 </head>
 
 <body>
@@ -39,18 +42,18 @@
             <a class="nav-link" href="{{ url_for('get_all_posts') }}">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('login') }}">Viajes</a>
+            <a class="nav-link" href="{{ url_for('viajes') }}">Viajes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('register') }}">Escalada</a>
+            <a class="nav-link" href="{{ url_for('escalada') }}">Escalada</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('about') }}">Montañismo</a>
+            <a class="nav-link" href="{{ url_for('montanismo') }}">Montañismo</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('contact') }}">Contacto</a>
           </li>
-          {% if logged_in: %}
+          {% if current_user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
           </li>
