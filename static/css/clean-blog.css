@@ -13,8 +13,8 @@
                     }
 body {
   font-size: 20px;
-  color: #f4eeee;
-  font-family: 'Montserrat;
+  color: #181818;
+  font-family: 'Montserrat', sans-serif;
 }
 
 p {
@@ -167,6 +167,10 @@ img::-moz-selection {
     border-top:1px dotted #bbb;
     padding:10px;
 }
+.post-title{
+  font-family: 'EB Garamond', serif;
+  font-weight: 600;
+}
 
 #mainNav {
   position: absolute;
@@ -310,7 +314,7 @@ header.masthead .site-heading .subheading {
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: .1rem;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   color: #f4eeee;
 }
 
@@ -319,6 +323,7 @@ header.masthead .site-heading .subheading {
   header.masthead .page-heading h1,
   header.masthead .site-heading h1 {
     font-size: 80px;
+    font-family: MoonTime;
   }
 }
 
@@ -336,7 +341,7 @@ header.masthead .post-heading .subheading {
   font-size: 24px;
   font-weight: 600;
   margin: 10px 0 30px;
-  font-family: 'Montserraf';
+  font-family: 'EB Garamond', serif;
 }
 
 header.masthead .post-heading .meta {
@@ -382,17 +387,19 @@ margin: 2em 0;
 }
 
 .post-preview > a > .post-title {
+  font-family: 'EB Garamond', serif;
   font-size: 30px;
   margin-top: 30px;
   margin-bottom: 10px;
 }
 
 .post-preview > a > .post-subtitle {
+  font-family: 'EB Garamond', serif;
   font-weight: 300;
   margin: 0 0 10px;
 }
-
 .post-preview > .post-meta {
+  font-family: 'EB Garamond', serif;
   font-size: 18px;
   font-style: italic;
   margin-top: 0;
@@ -405,12 +412,11 @@ margin: 2em 0;
 }
 
 .post-preview > .post-meta > a:focus, .post-preview > .post-meta > a:hover {
-  text-decoration: underline;
   color: #0085A1;
 }
 
 .post-text{
- font-family: 'Montserraf';
+ font-family: 'EB Garamond', serif;
 }
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
