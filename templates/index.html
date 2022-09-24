@@ -1,7 +1,7 @@
 {% include "header.html" %}
 
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('static/img/dani-cima.jpg'); padding-top: 100px">
+<header class="masthead" style="background-image: url('static/img/refugioviento.jpg'); padding-top: 100px">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
@@ -17,14 +17,77 @@
 </header>
 
 <!-- Main Content -->
+<section class="masthead" style="background-image: url('static/img/collage1.jpg'); padding: 100px 0 500px">
+    <div class="overlay"></div>
+        <div class="container mid">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading-mid">
+                        <h1>Hola! Soy Dani Dimotta</h1>
+                        <span class="subheading">Naci en Zárate, Buenos Aires. Desde pequeña mi vida fue un ir y venir
+                        por aquí y por allá. El movimiento fue la única constante en una vida llena de cambios, mudanzas
+                        y aventuras. </span>
+
+                        <a class="btn btn-outline-light" href="{{url_for('about')}}" role="button">Leer Más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="the-carousel">
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="col-lg-10 col-md-10 mx-auto">
+            <div id="main-carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#main-carousel" data-slide-to="1"></li>
+                    <li data-target="#main-carousel" data-slide-to="2"></li>
+                </ol>
+            <div class="carousel-inner rounded-2 shadow-4-strong">
+                <div class="carousel-item active">
+                    <div class="overlay"></div>
+                    <img class="d-block w-100" src="static/img/AA1.jpg" alt="First slide">
 
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Mi Pirca</h5>
+                        <p><i>Señales de que estamos en el camino correcto</i></p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="overlay"></div>
+                    <img class="d-block w-100" src="static/img/fear-sized.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Miedo a caer</h5>
+                        <p><i>Miedo como el principal enemigo de mejorar en escalada</i></p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="overlay"></div>
+                    <img class="d-block w-100" src="static/img/AA2.jpg" alt="Third slide">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>La escalada</h5>
+                    <p><i>La pasion por la roca</i> </p>
+                  </div>
+                </div>
+            </div>
+                <a class="carousel-control-prev" href="#main-carousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#main-carousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         </div>
     </div>
 </div>
+</section>
 
+<section>
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
@@ -60,6 +123,7 @@
         </div>
     </div>
 </div>
+</section>
 <hr>
 
 {% include "footer.html" %}

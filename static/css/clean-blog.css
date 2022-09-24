@@ -13,8 +13,8 @@
                     }
 body {
   font-size: 20px;
-  color: #212529;
-  font-family: LibreFranklin;
+  color: #f4eeee;
+  font-family: 'Montserrat;
 }
 
 p {
@@ -33,7 +33,7 @@ h4,
 h5,
 h6 {
   font-weight: 800;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: LibreFranklin;
 }
 
 a {
@@ -66,6 +66,7 @@ blockquote {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
+
 content p {
     font-style: italic;
     color:red;
@@ -243,31 +244,24 @@ img::-moz-selection {
   }
 }
 
-header.masthead {
-  margin-bottom: 50px;
+header.masthead, section.masthead{
   padding-bottom: 10%;
   background-color: #868e96;
-  background-attachment: scroll;
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
   position: relative;
   background-size: cover;
 
 }
 
-header.masthead .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #212529;
-  opacity: 0.1;
-}
 
 header.masthead .page-heading,
 header.masthead .post-heading,
 header.masthead .site-heading {
   padding: 200px 0 150px;
   color: white;
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -284,25 +278,42 @@ header.masthead .site-heading {
   text-align: center;
 }
 
-header.masthead .page-heading h1,
-
 header.masthead .site-heading h1 {
   font-family: MoonTime;
-  font-size: 50px;
+  font-size: 60px;
   font-weight: 200;
   margin-top: 0;
 }
 
 header.masthead .page-heading .subheading,
 header.masthead .site-heading .subheading {
-  font-size: 16px;
-  font-weight: 300;
+  font-size: 20px;
+  font-weight: 500;
   line-height: 1.1;
   letter-spacing: .1rem;
   display: block;
   margin: 10px 0 0;
   font-family: LibreFranklin;
 }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #212529;
+  opacity: 0.5;
+}
+.site-heading-mid{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: .1rem;
+  font-family: Montserrat;
+  color: #f4eeee;
+}
+
 
 @media only screen and (min-width: 768px) {
   header.masthead .page-heading h1,
@@ -325,7 +336,7 @@ header.masthead .post-heading .subheading {
   font-size: 24px;
   font-weight: 600;
   margin: 10px 0 30px;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Montserraf';
 }
 
 header.masthead .post-heading .meta {
@@ -339,6 +350,10 @@ header.masthead .post-heading .meta a {
   color: #fff;
 }
 
+.container mid{
+  margin-left: 0;
+}
+
 @media only screen and (min-width: 768px) {
   header.masthead .post-heading h1 {
     font-size: 55px;
@@ -346,6 +361,15 @@ header.masthead .post-heading .meta a {
   header.masthead .post-heading .subheading {
     font-size: 30px;
   }
+}
+
+.carousel-inner {
+margin: 2em 0;
+}
+
+.carousel-inner img {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .post-preview > a {
@@ -386,7 +410,7 @@ header.masthead .post-heading .meta a {
 }
 
 .post-text{
- font-family: LibreFranklin;
+ font-family: 'Montserraf';
 }
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
@@ -472,10 +496,11 @@ footer .copyright {
 .btn {
   font-size: 14px;
   font-weight: 800;
-  padding: 15px 25px;
+  margin-top: 25px;
+  padding: 10px 25px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border-radius: 0;
+  border-radius: 30px;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
