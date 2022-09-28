@@ -7,7 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, AnonymousUserMixin, login_user, LoginManager, login_required, current_user, \
     logout_user
-from forms import CreatePostForm
+from forms import CreatePostForm, ContactForm
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import DataRequired, Email, Length
@@ -16,11 +16,14 @@ from functools import wraps
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
+import smtplib, ssl
+import os
 
 Base = declarative_base()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
+# app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 ckeditor = CKEditor(app)
 Bootstrap(app)
 ##GRAVATAR
@@ -123,6 +126,18 @@ def admin_only(f):
 
     return decorated_function
 
+#This function sends email from contact page
+def send_email(name: str, email: str, phone, message: str):
+    """Takes the contact form information and sends an email"""
+    email_1 = "mantecasalvadores@yahoo.com"
+    password_1 = 'eoufscvxmavcrcfm'
+    email_2 = 'nicolas.salvadores93@gmail.com'
+    with smtplib.SMTP('smtp.mail.yahoo.com', 587) as connect_1:
+        connect_1.starttls()
+        connect_1.login(user=email_1, password=password_1)
+        connect_1.sendmail(from_addr=email_1,
+                           to_addrs=email_2,
+                           msg=f"Subject:Message from {name}\n\n{message}\n\nCel: {phone}\nEmail: {email}")
 
 ## For Login
 @login_manager.user_loader
@@ -199,9 +214,15 @@ def about():
     return render_template("about.html")
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
-    return render_template("contact.html")
+    form = ContactForm()
+    if form.validate_on_submit():
+        form_data = request.form
+        send_email(form_data['name'], form_data['email'], form_data['phone'], form_data['message'])
+        return render_template('contact.html', title='Successfully sent your message',
+                               subtitle='I will get back to you ASAP', form=form)
+    return render_template("contact.html", title=False, form=form)
 
 @app.route("/viajes")
 def viajes():
