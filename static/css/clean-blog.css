@@ -169,7 +169,7 @@ img::-moz-selection {
 }
 .post-title{
   font-family: 'EB Garamond', serif;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 #mainNav {
@@ -366,7 +366,7 @@ header.masthead .post-heading .meta a {
     font-size: 80px;
   }
   header.masthead .post-heading .subheading {
-    font-size: 30px;
+    font-size: 25px;
   }
 }
 
