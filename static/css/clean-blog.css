@@ -422,7 +422,7 @@ margin: 2em 0;
 }
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
-    font-family: MoonTime;
+    font-family: 'EB Garamond', serif;
     font-size: 36px;
   }
 }
