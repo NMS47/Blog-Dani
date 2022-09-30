@@ -13,6 +13,7 @@ class CreatePostForm(FlaskForm):
     body = CKEditorField("Contenido", validators=[DataRequired()])
     submit = SubmitField("Subir Post")
 
+
 class ContactForm(FlaskForm):
     name = StringField('Name', validators=[InputRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[InputRequired(), Length(min=6, max=30), Email()])

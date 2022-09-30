@@ -14,7 +14,9 @@
 body {
   font-size: 20px;
   color: #181818;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'EB Garamond', serif;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 p {
@@ -40,7 +42,9 @@ a {
   color: #212529;
   transition: all 0.2s;
 }
-
+h5 a{
+  color: #fff;
+}
 a:focus, a:hover {
   color: #0085A1;
 }
@@ -256,6 +260,7 @@ header.masthead, section.masthead{
   background-repeat: no-repeat;
   position: relative;
   background-size: cover;
+  margin-top: 1px;
 
 }
 
@@ -299,7 +304,15 @@ header.masthead .site-heading .subheading {
   margin: 10px 0 0;
   font-family: LibreFranklin;
 }
-
+.overlay-head{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #212529;
+  opacity: 0.2;
+}
 .overlay {
   position: absolute;
   top: 0;

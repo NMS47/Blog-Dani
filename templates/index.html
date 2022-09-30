@@ -1,7 +1,8 @@
 {% include "header.html" %}
 
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('static/img/refugioviento.jpg'); padding-top: 100px">
+<header class="masthead" style="background-image: url('static/img/pirca2.jpg'); padding-top: 100px">
+    <div class="overlay-head"></div>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
@@ -17,112 +18,110 @@
 </header>
 
 <!-- Main Content -->
-<section class="masthead" style="background-image: url('static/img/collage1.jpg'); padding: 250px 0 250px">
-    <div class="overlay"></div>
-        <div class="container mid">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="site-heading-mid">
-                        <h1>Hola! Soy Dani Dimotta</h1>
-                        <span class="subheading">Naci en Zárate, Buenos Aires. Desde pequeña mi vida fue un ir y venir
-                        por aquí y por allá. El movimiento fue la única constante en una vida llena de cambios, mudanzas
-                        y aventuras. </span>
-                        <br>
-                        <a class="btn btn-outline-light" href="{{url_for('about')}}" role="button">Leer Más</a>
-                    </div>
+<section class="masthead" style="background-image: url('static/img/refugioviento.jpg'); padding: 250px 0 250px">
+
+    <div class="container mid">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading-mid">
+                    <h1>Hola! Soy Dani Dimotta</h1>
+                    <span class="subheading">Nací en Zárate, Buenos Aires. Desde pequeña mi vida fue un ir y venir por el mundo. El movimiento fue la única constante en una vida llena de cambios, mudanzas y aventuras.
+                     <br><br>Descubrí en la montaña cierto misterio, y cierta sabiduría, que cuando encaras la idea de hacer una cumbre, en realidad encaras un aprendizaje y una magia mayor. Un descubrimiento que solo uno muy adentro sabe. En ese camino te vas encontrando con algo que quizás, desde la perspectiva normal de la vida cotidiana no lográs ver. Encontré en la montaña un espejo, en las pircas señales. En el camino por las montañas...</span>
+                    <br>
+                    <a class="btn btn-outline-light" href="{{url_for('about')}}" role="button">Leer Más</a>
                 </div>
             </div>
         </div>
     </div>
+
 </section>
 
 <section class="the-carousel">
-<div class="container">
-    <div class="row">
-        <div class="col-lg-10 col-md-10 mx-auto">
-            <div id="main-carousel" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#main-carousel" data-slide-to="1"></li>
-                    <li data-target="#main-carousel" data-slide-to="2"></li>
-                </ol>
-            <div class="carousel-inner rounded-2 shadow-4-strong">
-                <div class="carousel-item active">
-                    <div class="overlay"></div>
-                    <img class="d-block w-100" src="static/img/AA1.jpg" alt="First slide">
-
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Mi Pirca</h5>
-                        <p><i>Señales de que estamos en el camino correcto</i></p>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="overlay"></div>
-                    <img class="d-block w-100" src="static/img/fear-sized.jpg" alt="Second slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Miedo a caer</h5>
-                        <p><i>Miedo como el principal enemigo de mejorar en escalada</i></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-md-10 mx-auto">
+                <div id="main-carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#main-carousel" data-slide-to="1"></li>
+                        <li data-target="#main-carousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner rounded-2 shadow-4-strong">
+                        <div class="carousel-item active">
+                            <div class="overlay"></div>
+                            <img class="d-block w-100" src="static/img/AA1.jpg" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5><a href="{{url_for('show_post', post_id=1)}}">Mi Pirca</a></h5>
+                                <p><i>Acaso no estamos todos buscando nuestras pircas? Preguntandonos, Por dónde será que tengo que ir ahora? Es correcto el camino que tome, o la recontra pifie? La pirca se vuelve tu mayor aliado</i></p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="overlay"></div>
+                            <img class="d-block w-100" src="static/img/fear-sized.jpg" alt="Second slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5><a href="{{url_for('show_post', post_id=3)}}">Miedo a caer</a></h5>
+                                <p><i>Para la gran mayoría de nosotros, cuando llega el momento de afrontar un reto, el principal enemigo somos nosotros mismos.</i></p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="overlay"></div>
+                            <img class="d-block w-100" src="static/img/AA2.jpg" alt="Third slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5><a href="{{url_for('show_post', post_id=4)}}">Por que escalo?</a></h5>
+                                <p><i>Por que vivimos la vida de la manera en que lo hacemos? A donde nos lleva eso? Para qué? Nos hace felices?</i></p>
+                            </div>
+                        </div>
                     </div>
+                    <a class="carousel-control-prev" href="#main-carousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#main-carousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
-                <div class="carousel-item">
-                    <div class="overlay"></div>
-                    <img class="d-block w-100" src="static/img/AA2.jpg" alt="Third slide">
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>La escalada</h5>
-                    <p><i>La pasion por la roca</i> </p>
-                  </div>
-                </div>
-            </div>
-                <a class="carousel-control-prev" href="#main-carousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#main-carousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
         </div>
     </div>
-</div>
 </section>
 
 <section>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            {% for post in all_posts %}
-            <div class="post-preview">
-                <a href="{{ url_for('show_post', post_id=post.id) }}">
-                    <h2 class="post-title">
-                        {{post.title}}
-                    </h2>
-                    <h3 class="post-subtitle">
-                        {{post.subtitle}}
-                    </h3>
-                </a>
-                <p class="post-meta">Posted by
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                {% for post in all_posts %}
+                <div class="post-preview">
+                    <a href="{{ url_for('show_post', post_id=post.id) }}">
+                        <h2 class="post-title">
+                            {{post.title}}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{post.subtitle}}
+                        </h3>
+                    </a>
+                    <p class="post-meta">Posted by
 
-                    <a href="{{url_for('about')}}">{{post.author.username}}</a>
-                    on {{post.date}}
-                    {% if current_user.id == 1 %}
-                    <a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
-                    {% endif %}
-                </p>
+                        <a href="{{url_for('about')}}">{{post.author.username}}</a>
+                        on {{post.date}}
+                        {% if current_user.id == 1 %}
+                        <a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
+                        {% endif %}
+                    </p>
+                </div>
+                <hr>
+                {% endfor %}
+
+
+                <!-- New Post -->
+                {% if current_user.id == 1 %}
+                <div class="clearfix">
+                    <a class="btn btn-primary float-right" href="{{url_for('add_new_post')}}">Create New Post</a>
+                </div>
+                {% endif %}
             </div>
-            <hr>
-            {% endfor %}
-
-
-            <!-- New Post -->
-            {% if current_user.id == 1 %}
-            <div class="clearfix">
-                <a class="btn btn-primary float-right" href="{{url_for('add_new_post')}}">Create New Post</a>
-            </div>
-            {% endif %}
         </div>
     </div>
-</div>
 </section>
 <hr>
 
