@@ -63,11 +63,11 @@ class BlogPost(db.Model):
     author_id = db.Column(db.Integer, ForeignKey('users.id'))
     author = relationship('Users', back_populates='posts')
     title = db.Column(db.String(250), unique=True, nullable=False)
-    subtitle = db.Column(db.String(500), nullable=False)
+    subtitle = db.Column(db.String(250), nullable=False)
     category = db.Column(db.String(250), nullable=False)
     date = db.Column(db.String(250), nullable=False)
     body = db.Column(db.Text, nullable=False)
-    img_url = db.Column(db.String(500), nullable=False)
+    img_url = db.Column(db.String(250), nullable=False)
     comments = relationship('Comment', back_populates="parent_post")
 
 ## TABLE FOR COMMENTS
