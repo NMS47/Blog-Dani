@@ -82,7 +82,7 @@ class Comment(db.Model):
     parent_post = relationship("BlogPost", back_populates="comments")
     date = db.Column(db.String(20), nullable=False)
     text = db.Column(db.Text, nullable=False)
-# db.create_all()
+db.create_all()
 
 
 class RegisterForm(FlaskForm):
