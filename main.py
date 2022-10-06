@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash, request, g
+from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor, CKEditorField
 from datetime import date
@@ -37,8 +37,7 @@ gravatar = Gravatar(app,
                     base_url=None)
 
 ##CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL1')
-# "sqlite:///dani-blog.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL1', "sqlite:///dani-blog.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -82,7 +81,7 @@ class Comment(db.Model):
     parent_post = relationship("BlogPost", back_populates="comments")
     date = db.Column(db.String(20), nullable=False)
     text = db.Column(db.Text, nullable=False)
-db.create_all()
+# db.create_all()
 
 
 class RegisterForm(FlaskForm):
