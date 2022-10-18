@@ -262,6 +262,7 @@ header.masthead, section.masthead{
   background-size: cover;
   margin-top: 1px;
 
+
 }
 
 
@@ -278,6 +279,10 @@ header.masthead .site-heading {
   header.masthead .post-heading,
   header.masthead .site-heading {
     padding: 200px 0;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
 
   }
 }
