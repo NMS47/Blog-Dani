@@ -35,7 +35,7 @@ h4,
 h5,
 h6 {
   font-weight: 800;
-  font-family: LibreFranklin;
+  font-family: 'EB Garamond', serif;
 }
 
 a {
@@ -333,7 +333,7 @@ header.masthead .site-heading .subheading {
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: .1rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'EB Garamond', serif;
   color: #f4eeee;
 }
 
