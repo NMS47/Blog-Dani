@@ -418,6 +418,7 @@ margin: 2em 0;
 .post-preview > a > .post-subtitle {
   font-family: 'EB Garamond', serif;
   font-weight: 300;
+  font-size: 1.5rem;
   margin: 0 0 10px;
 }
 .post-preview > .post-meta {
@@ -443,7 +444,7 @@ margin: 2em 0;
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
     font-family: 'EB Garamond', serif;
-    font-size: 36px;
+    font-size: 30px;
   }
 }
 .form-control {
