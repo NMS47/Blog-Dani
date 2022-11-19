@@ -263,11 +263,6 @@ header.masthead, section.masthead{
   background-size: cover;
   margin-top: 1px;
 }
-@supports (-webkit-overflow-scrolling: touch) {
-    .masthead {
-    background-attachment: scroll;
-    }
-}
 
 header.masthead .page-heading,
 header.masthead .post-heading,
@@ -553,7 +548,7 @@ footer .copyright {
   padding: 25px 35px;
 }
 @supports (-webkit-overflow-scrolling: touch) {
-    body *: {
+    .masthead, section.masthead {
     background-attachment: scroll;
     }
 }
