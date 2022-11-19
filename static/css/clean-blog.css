@@ -285,7 +285,9 @@ header.masthead .site-heading {
          -o-background-size: cover;
             background-size: cover;
 
+ background-attachment:scroll;
   }
+
 }
 
 header.masthead .page-heading,
