@@ -551,3 +551,8 @@ footer .copyright {
   font-size: 16px;
   padding: 25px 35px;
 }
+@supports (-webkit-overflow-scrolling: touch) {
+    body *: {
+    background-attachment: scroll;
+    }
+}
