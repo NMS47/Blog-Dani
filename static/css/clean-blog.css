@@ -547,6 +547,14 @@ footer .copyright {
   font-size: 16px;
   padding: 25px 35px;
 }
+@media only screen and (max-width: 700px) {
+  body {
+    text-align: center;
+  }
+  img {
+    width: -webkit-fill-available !important;
+  }
+}
 
 @supports (-webkit-touch-callout: none) {
     header.masthead, section.masthead {
