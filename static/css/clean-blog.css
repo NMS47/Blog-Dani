@@ -552,7 +552,8 @@ footer .copyright {
     text-align: center;
   }
   img {
-    width: -webkit-fill-available !important;
+    width: 100% !important;
+    height: auto !important;
   }
 }
 
