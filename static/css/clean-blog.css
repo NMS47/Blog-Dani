@@ -547,10 +547,9 @@ footer .copyright {
   font-size: 16px;
   padding: 25px 35px;
 }
-/*
-@supports (-webkit-overflow-scrolling: touch) {
-   header.masthead, section.masthead {
+
+@supports (-webkit-touch-callout: none) {
+    header.masthead, section.masthead {
    background-attachment: scroll;
     }
 }
-*/
