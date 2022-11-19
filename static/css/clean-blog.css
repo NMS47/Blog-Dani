@@ -276,7 +276,7 @@ header.masthead .site-heading {
   color: white;
 
 }
-
+/*
 @media only screen and (min-width: 360px) {
   header.masthead .page-heading,
   header.masthead .post-heading,
@@ -287,11 +287,10 @@ header.masthead .site-heading {
          -o-background-size: cover;
             background-size: cover;
 
- background-attachment:scroll;
+
   }
-
 }
-
+*/
 header.masthead .page-heading,
 header.masthead .site-heading {
   text-align: center;
