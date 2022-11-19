@@ -262,10 +262,12 @@ header.masthead, section.masthead{
   position: relative;
   background-size: cover;
   margin-top: 1px;
-
-
 }
-
+@supports (-webkit-overflow-scrolling: touch) {
+    .masthead {
+    background-attachment: scroll;
+    }
+}
 
 header.masthead .page-heading,
 header.masthead .post-heading,
