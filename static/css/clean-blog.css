@@ -392,8 +392,13 @@ margin: 2em 0;
 }
 
 .carousel-inner img {
-  max-width: 100%;
-  height: auto;
+  content-visibility: auto;
+  background-color: #eee;
+  max-height: 400px;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  /* max-width: 100%;
+  height: auto; */
 
 }
 
@@ -557,9 +562,8 @@ footer .copyright {
     height: auto !important;
     margin: 0 !important;
   }
-  .carousel-inner img {
+   .carousel-inner img {
     aspect-ratio: 4 / 3;
-    background-size: cover;
   }
 }
 
