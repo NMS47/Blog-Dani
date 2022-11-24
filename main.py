@@ -132,7 +132,7 @@ def send_email(name: str, email: str, phone, message: str):
     """Takes the contact form information and sends an email"""
     email_1 = "mantecasalvadores@yahoo.com"
     password_1 = 'eoufscvxmavcrcfm'
-    email_2 = 'nicolas.salvadores93@gmail.com'
+    email_2 = 'danidimotta@gmail.com'
     with smtplib.SMTP('smtp.mail.yahoo.com', 587) as connect_1:
         connect_1.starttls()
         connect_1.login(user=email_1, password=password_1)
