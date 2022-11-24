@@ -15,8 +15,7 @@ class CreatePostForm(FlaskForm):
 
 
 class ContactForm(FlaskForm):
-    name = StringField('Name', validators=[InputRequired(), Length(min=2, max=20)])
+    name = StringField('Nombre', validators=[InputRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[InputRequired(), Length(min=6, max=50), Email()])
-    phone = StringField('Phone', validators=[Length(min=8, max=20)])
-    message = TextAreaField('Message', validators=[InputRequired()])
+    message = TextAreaField('Mensaje', validators=[InputRequired()])
     submit = SubmitField('Enviar')

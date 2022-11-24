@@ -22,6 +22,7 @@ Base = declarative_base()
 
 app = Flask(__name__)
 SECRET_KEY = os.getenv('SECRET_KEY')
+# app.config['SECRET_KEY'] = "12345678910"
 app.config['SECRET_KEY'] = SECRET_KEY
 
 ckeditor = CKEditor(app)
@@ -76,7 +77,6 @@ class Comment(db.Model):
     # FOR MULTIUSERS
     # author_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     # comment_author = relationship("Users", back_populates="comments")
-
     author = db.Column(db.String(50), nullable=False)
     author_email = db.Column(db.String(50), nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey("blog_posts.id"))
@@ -88,7 +88,6 @@ class Comment(db.Model):
 
 class RegisterForm(FlaskForm):
     username = StringField("Username", validators=[DataRequired()])
-
     email = StringField("Email", validators=[DataRequired(), Email()])
     password = PasswordField("Password", validators=[DataRequired(), Length(6)])
     submit = SubmitField('Register Now')
@@ -105,10 +104,10 @@ class AnonymousUser(AnonymousUserMixin):
 
 
 class CommentForm(FlaskForm):
-    name = StringField("Name", validators=[DataRequired()])
+    name = StringField("Nombre", validators=[DataRequired()])
     email = StringField("Email (No te Preocupes, No va a ser publicado!)", validators=[Email()])
-    comment = CKEditorField("Your comment")
-    submit = SubmitField('Post Comment')
+    comment = CKEditorField("Tu comentario")
+    submit = SubmitField('Comentar')
 
 
 ## For Loggin In
@@ -128,17 +127,23 @@ def admin_only(f):
     return decorated_function
 
 #This function sends email from contact page
-def send_email(name: str, email: str, phone, message: str):
+def send_email(name: str, email: str, message: str, type: str):
     """Takes the contact form information and sends an email"""
     email_1 = "mantecasalvadores@yahoo.com"
     password_1 = 'eoufscvxmavcrcfm'
     email_2 = 'danidimotta@gmail.com'
+    # email_2 = 'nicolas.salvadores93@gmail.com'
     with smtplib.SMTP('smtp.mail.yahoo.com', 587) as connect_1:
         connect_1.starttls()
         connect_1.login(user=email_1, password=password_1)
-        connect_1.sendmail(from_addr=email_1,
-                           to_addrs=email_2,
-                           msg=f"Subject:Message from {name}\n\n{message}\n\nCel: {phone}\nEmail: {email}")
+        if type == 'contact':
+            connect_1.sendmail(from_addr=email_1,
+                               to_addrs=email_2,
+                               msg=f"Subject:Message from {name}\n\n{message}\n\nEmail: {email}")
+        elif type == 'comment':
+            connect_1.sendmail(from_addr=email_1,
+                               to_addrs=email_2,
+                               msg=f"Subject:Nuevo comentario en el blog!!\n\n{name} comento:\n\n{message}\n\nEmail: {email}")
 
 ## For Login
 @login_manager.user_loader
@@ -207,6 +212,7 @@ def show_post(post_id):
         )
         db.session.add(new_comment)
         db.session.commit()
+        send_email(name=form.name.data, email=form.email.data, message=form.comment.data, type='comment' )
         return redirect(url_for('show_post', post_id=requested_post.id))
     return render_template("post.html", post=requested_post, user=current_user.id, form=form)
 
@@ -221,7 +227,7 @@ def contact():
     form = ContactForm()
     if form.validate_on_submit():
         form_data = request.form
-        send_email(form_data['name'], form_data['email'], form_data['phone'], form_data['message'])
+        send_email(form_data['name'], form_data['email'], form_data['message'], type='contact')
         return render_template('contact.html', title='Gracias por ponerte en contacto!',
                                subtitle='Tendras tu respuesta muy rapido', form=form)
     return render_template("contact.html", title=False, form=form)
