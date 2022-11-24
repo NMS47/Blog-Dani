@@ -76,7 +76,9 @@ class Comment(db.Model):
     # FOR MULTIUSERS
     # author_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     # comment_author = relationship("Users", back_populates="comments")
+
     author = db.Column(db.String(50), nullable=False)
+    author_email = db.Column(db.String(50), nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey("blog_posts.id"))
     parent_post = relationship("BlogPost", back_populates="comments")
     date = db.Column(db.String(20), nullable=False)
@@ -104,6 +106,7 @@ class AnonymousUser(AnonymousUserMixin):
 
 class CommentForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
+    email = StringField("Email (No te Preocupes, No va a ser publicado!)", validators=[Email()])
     comment = CKEditorField("Your comment")
     submit = SubmitField('Post Comment')
 
@@ -198,6 +201,7 @@ def show_post(post_id):
         new_comment = Comment(
             text=form.comment.data,
             author=form.name.data,
+            author_email=form.email.data,
             parent_post=requested_post,
             date=date.today().strftime("%B %d, %Y")
         )
