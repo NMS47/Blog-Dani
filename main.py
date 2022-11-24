@@ -222,8 +222,8 @@ def contact():
     if form.validate_on_submit():
         form_data = request.form
         send_email(form_data['name'], form_data['email'], form_data['phone'], form_data['message'])
-        return render_template('contact.html', title='Successfully sent your message',
-                               subtitle='I will get back to you ASAP', form=form)
+        return render_template('contact.html', title='Gracias por ponerte en contacto!',
+                               subtitle='Tendras tu respuesta muy rapido', form=form)
     return render_template("contact.html", title=False, form=form)
 
 @app.route("/viajes")
