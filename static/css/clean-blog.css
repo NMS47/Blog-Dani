@@ -392,7 +392,7 @@ margin: 2em 0;
 }
 
 .carousel-inner img {
-  content-visibility: auto;
+
   background-color: #eee;
   max-height: 400px;
   aspect-ratio: 16/9;
