@@ -14,7 +14,7 @@
 body {
   font-size: 20px;
   color: #181818;
-  font-family: 'EB Garamond', serif;
+  font-family: 'Montserrat';
   text-align: justify;
   text-justify: inter-word;
 }
@@ -34,8 +34,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 800;
-  font-family: 'EB Garamond', serif;
+  font-weight: 600;
+  font-family: 'Montserrat';
 }
 
 a {
@@ -181,7 +181,8 @@ img::-moz-selection {
   position: absolute;
   border-bottom: 1px solid #e9ecef;
   background-color: white;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat';
+  text-align: center;
 }
 
 #mainNav .navbar-toggler {
@@ -193,10 +194,9 @@ img::-moz-selection {
 }
 
 #mainNav .navbar-nav > li.nav-item > a {
-  font-size: 12px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: 400;
   letter-spacing: 1.2px;
-  text-transform: uppercase;
 }
 
 @media only screen and (min-width: 992px) {
@@ -252,7 +252,8 @@ img::-moz-selection {
     transform: translate3d(0, 100%, 0);
   }
 }
-
+#navbarResponsive{
+  display: inline-block !important;}
 header.masthead, section.masthead{
   padding-bottom: 10%;
   background-color: #868e96;
@@ -300,13 +301,13 @@ header.masthead .site-heading h1 {
 
 header.masthead .page-heading .subheading,
 header.masthead .site-heading .subheading {
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: .1rem;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: .05rem;
   display: block;
   margin: 10px 0 0;
-  font-family: LibreFranklin;
+  font-family: 'Montserrat';
 }
 .overlay-head{
   position: absolute;
@@ -326,13 +327,21 @@ header.masthead .site-heading .subheading {
   background-color: #212529;
   opacity: 0.5;
 }
+.mid-head{
+    font-family: Moontime;
+    font-weight: 500;
+    font-size: 4rem;
+    text-align: center
+}
+
 .site-heading-mid{
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.3;
   letter-spacing: .1rem;
-  font-family: 'EB Garamond', serif;
-  color: #f4eeee;
+  font-family: 'Montserrat';
+  color: #ffffff;
+  text-align: center
 }
 
 
@@ -357,9 +366,9 @@ header.masthead .post-heading .subheading {
 
 header.masthead .post-heading .subheading {
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 400;
   margin: 10px 0 30px;
-  font-family: 'EB Garamond', serif;
+  font-family: 'Montserrat';
 }
 
 header.masthead .post-heading .meta {
@@ -413,16 +422,16 @@ margin: 2em 0;
 }
 
 .post-preview > a > .post-title {
-  font-family: 'EB Garamond', serif;
+  font-family: 'Montserrat';
   font-size: 30px;
   margin-top: 30px;
   margin-bottom: 10px;
 }
 
 .post-preview > a > .post-subtitle {
-  font-family: 'EB Garamond', serif;
-  font-weight: 300;
-  font-size: 1.5rem;
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 1.3rem;
   margin: 0 0 10px;
 }
 .post-preview > .post-meta {
@@ -443,7 +452,7 @@ margin: 2em 0;
 }
 
 .post-text{
- font-family: 'EB Garamond', serif;
+ font-family: 'Montserrat';
 }
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
