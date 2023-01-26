@@ -251,9 +251,10 @@ img::-moz-selection {
     /* if the user changes the scrolling direction, we show the header */
     transform: translate3d(0, 100%, 0);
   }
-}
-#navbarResponsive{
+  #navbarResponsive{
   display: inline-block !important;}
+}
+
 header.masthead, section.masthead{
   padding-bottom: 10%;
   background-color: #868e96;
@@ -571,11 +572,10 @@ footer .copyright {
     height: auto !important;
     margin: 0 !important;
   }
-   .carousel-inner img {
+  .carousel-inner img {
     aspect-ratio: 4 / 3;
   }
 }
-
 @supports (-webkit-touch-callout: none) {
     header.masthead, section.masthead {
    background-attachment: scroll;
