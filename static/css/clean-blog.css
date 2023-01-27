@@ -12,7 +12,7 @@
     src: url("../vendor/fontawesome-free/webfonts/LibreFranklin.ttf");
                     }
 body {
-  font-size: 20px;
+  font-size: .95rem;
   color: #181818;
   font-family: 'Montserrat';
   text-align: justify;
@@ -302,7 +302,7 @@ header.masthead .site-heading h1 {
 
 header.masthead .page-heading .subheading,
 header.masthead .site-heading .subheading {
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: .05rem;
@@ -575,6 +575,13 @@ footer .copyright {
   .carousel-inner img {
     aspect-ratio: 4 / 3;
   }
+  .post-preview > a > .post-title {
+  font-size: 2rem;
+}
+
+.post-preview > a > .post-subtitle {
+  font-size: 1rem;
+}
 }
 @supports (-webkit-touch-callout: none) {
     header.masthead, section.masthead {
