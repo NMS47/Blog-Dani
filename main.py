@@ -17,6 +17,8 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 import smtplib
 import os
+from unidecode import unidecode
+
 
 Base = declarative_base()
 
@@ -202,6 +204,7 @@ def logout():
 @app.route("/post/<int:post_id>", methods=["GET", "POST"])
 def show_post(post_id):
     requested_post = BlogPost.query.get(post_id)
+    requested_post.title = unidecode(requested_post.title)
     form = CommentForm()
     if form.validate_on_submit():
         new_comment = Comment(
@@ -236,7 +239,6 @@ def contact():
 @app.route("/viajes")
 def viajes():
     posts_viajes = BlogPost.query.filter_by(category='Viajes').all()
-    print(posts_viajes)
     return render_template("viajes.html", posts=posts_viajes)
 
 @app.route("/montanismo")
