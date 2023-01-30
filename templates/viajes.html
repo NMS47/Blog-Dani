@@ -15,32 +15,33 @@
     </div>
 </header>
 
-
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            {% for post in posts %}
-            <div class="post-preview">
-                <a href="{{ url_for('show_post', post_id=post.id) }}">
-                    <h2 class="post-title">
-                        {{post.title}}
-                    </h2>
-                    <h3 class="post-subtitle">
-                        {{post.subtitle}}
-                    </h3>
-                </a>
-                <p class="post-meta">Posted by
-
-                    <a href="{{url_for('about')}}">{{post.author.username}}</a>
-                    on {{post.date}}
+        {% for post in posts %}
+        <div class="col-lg-4 col-md-6 col-sm-12 mx-auto py-2">
+            <div class="post-preview" style="background-image: url('{{post.img_url}}')">
+                <div class="post-preview-inner">
+                    <a href="{{ url_for('show_post', post_id=post.id) }}">
+                        <h2 class="post-title">
+                            {{post.title}}
+                        </h2>
+<!--                        <h3 class="post-subtitle">-->
+<!--                            {{post.subtitle}}-->
+<!--                        </h3>-->
+                    </a>
+<!--                        <p class="post-meta" style="color:#000">Posted by-->
+<!--                            <a href="{{url_for('about')}}">{{post.author.username}}</a>-->
+<!--                            on {{post.date}} </p>>-->
                     {% if current_user.id == 1 %}
-                    <a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
+                    <p class="post-meta" style="color:#000">
+                        <a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
+                    </p>
                     {% endif %}
-                </p>
+                </div>
             </div>
-            <hr>
-            {% endfor %}
+        </div>
 
+            {% endfor %}
 
             <!-- New Post -->
             {% if current_user.id == 1 %}
@@ -48,9 +49,9 @@
                 <a class="btn btn-primary float-right" href="{{url_for('add_new_post')}}">Create New Post</a>
             </div>
             {% endif %}
-        </div>
     </div>
 </div>
+
 <hr>
 
 {% include "footer.html" %}
