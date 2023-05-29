@@ -107,7 +107,7 @@ class AnonymousUser(AnonymousUserMixin):
 
 class CommentForm(FlaskForm):
     name = StringField("Nombre", validators=[DataRequired()])
-    email = StringField("Email (No te Preocupes, No va a ser publicado!)", validators=[Email()])
+    # email = StringField("Email (No te Preocupes, No va a ser publicado!)", validators=[Email()])
     comment = CKEditorField("Tu comentario")
     submit = SubmitField('Comentar')
 
@@ -155,8 +155,8 @@ def load_user(user_id):
 
 @app.route('/')
 def get_all_posts():
-    posts = BlogPost.query.filter(BlogPost.category != 'Viajes').order_by(BlogPost.id.desc())
-    # posts.reverse()
+    posts = BlogPost.query.all()
+    posts.reverse()
     return render_template("index.html", all_posts=posts)
 
 
@@ -210,7 +210,7 @@ def show_post(post_id):
         new_comment = Comment(
             text=form.comment.data,
             author=form.name.data,
-            author_email=form.email.data,
+            author_email='xxxx@gmail.com',
             parent_post=requested_post,
             date=date.today().strftime("%B %d, %Y")
         )
