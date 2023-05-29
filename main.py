@@ -216,7 +216,7 @@ def show_post(post_id):
         )
         db.session.add(new_comment)
         db.session.commit()
-        send_email(name=form.name.data, email=form.email.data, message=form.comment.data, type='comment' )
+        send_email(name=form.name.data, email='xxxx@gmail.com', message=form.comment.data, type='comment' )
         return redirect(url_for('show_post', post_id=requested_post.id))
     return render_template("post.html", post=requested_post, user=current_user.id, form=form)
 
