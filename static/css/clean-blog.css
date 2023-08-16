@@ -1,8 +1,4 @@
-/*!
- * Start Bootstrap - Clean Blog v5.0.9 (https://startbootstrap.com/themes/clean-blog)
- * Copyright 2013-2020 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-clean-blog/blob/master/LICENSE)
- */
+
 @font-face {
     font-family: MoonTime;
     src: url("../vendor/fontawesome-free/webfonts/MoonTime-Regular.ttf");
@@ -59,6 +55,9 @@ blockquote {
   font-size: 36px;
   font-weight: 700;
   margin-top: 60px;
+}
+section.masthead{
+    padding: 250px 0 250px
 }
 
 .caption {
@@ -178,8 +177,12 @@ img::-moz-selection {
   background-repeat: no-repeat;
   background-size: cover;
   height: 200px;
-  position:relative;
-  text-align: center
+  text-align: center;
+  border-radius: 10px;
+  transition: box-shadow .3s;
+}
+.post-preview:hover{
+    box-shadow: 0 0 11px rgb(184, 182, 182);
 }
 .post-preview-inner{
   color: #fff;
@@ -189,14 +192,14 @@ img::-moz-selection {
   background-color: #fff;
   opacity: 0.85;
   justify-content: center;
-  width: 100%
+  width: 100%;
 }
 .post-title{
   font-family: 'EB Garamond';
   font-weight: 400;
   font-size: 1.5rem;
+  color: black;
 }
-
 #mainNav {
   position: absolute;
   border-bottom: 1px solid #e9ecef;
@@ -271,7 +274,6 @@ img::-moz-selection {
 }
 
 header.masthead, section.masthead{
-  padding-bottom: 10%;
   background-color: #868e96;
   background-attachment: fixed;
   background-position: center center;
@@ -279,6 +281,7 @@ header.masthead, section.masthead{
   position: relative;
   background-size: cover;
   margin-top: 1px;
+  height: 100vh;
 }
 
 header.masthead .page-heading,
@@ -288,21 +291,6 @@ header.masthead .site-heading {
   color: white;
 
 }
-/*
-@media only screen and (min-width: 360px) {
-  header.masthead .page-heading,
-  header.masthead .post-heading,
-  header.masthead .site-heading {
-    padding: 200px 0;
-    -webkit-background-size: cover;
-       -moz-background-size: cover;
-         -o-background-size: cover;
-            background-size: cover;
-
-
-  }
-}
-*/
 header.masthead .page-heading,
 header.masthead .site-heading {
   text-align: center;

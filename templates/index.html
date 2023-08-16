@@ -1,7 +1,7 @@
 {% include "header.html" %}
 
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('static/img/pirca2-min.JPG'); padding-top: 100px">
+<header class="masthead" style="background-image: url('static/img/pirca2.webp'); padding-top: 100px">
     <div class="overlay-head"></div>
     <div class="container">
         <div class="row">
@@ -18,7 +18,7 @@
 </header>
 
 <!-- Main Content -->
-<section class="masthead" style="background-image: url('static/img/nido.JPG'); padding: 250px 0 250px">
+<section class="masthead" style="background-image: url('static/img/nido-min.webp')">
 
     <div class="container mid">
         <div class="row">
@@ -47,25 +47,24 @@
                         <li data-target="#main-carousel" data-slide-to="2"></li>
                         <li data-target="#main-carousel" data-slide-to="3"></li>
                         <li data-target="#main-carousel" data-slide-to="4"></li>
-<!--                        <li data-target="#main-carousel" data-slide-to="5"></li>-->
 
                     </ol>
                     <div class="carousel-inner rounded-2 shadow-4-strong">
                         <div class="carousel-item active">
 <!--                            <div class="overlay"></div>-->
-                            <img class="d-block w-100" src="static/img/lanin-min.jpg" loading='lazy' alt="First slide">
+                            <img class="d-block w-100" src="static/img/lanin-minim.webp" loading='lazy' alt="First slide">
                         </div>
                         <div class="carousel-item">
 <!--                            <div class="overlay"></div>-->
-                            <img class="d-block w-100" src="static/img/dani-camina-min.JPG" loading='lazy' alt="Second slide">
+                            <img class="d-block w-100" src="static/img/dani-cam-min.webp" loading='lazy' alt="Second slide">
                         </div>
                         <div class="carousel-item">
 <!--                            <div class="overlay"></div>-->
-                            <img class="d-block w-100" src="static/img/nido3-min.JPG" loading='lazy' alt="Third slide">
+                            <img class="d-block w-100" src="static/img/nido-3-min.webp" loading='lazy' alt="Third slide">
                         </div>
                         <div class="carousel-item">
 <!--                            <div class="overlay"></div>-->
-                            <img class="d-block w-100" src="static/img/danipaisaje-min.jpg" loading='lazy' alt="Forth slide">
+                            <img class="d-block w-100" src="static/img/dani-paisaje-min.webp" loading='lazy' alt="Forth slide">
                         </div>
                         <div class="carousel-item">
 <!--                            <div class="overlay"></div>-->
@@ -91,30 +90,20 @@
         <div class="row">
             {% for post in all_posts %}
             <div class="col-lg-4 col-md-6 col-sm-12 mx-auto py-2">
-                <div class="post-preview" style="background-image: url('{{post.img_url}}')">
-                    <div class="post-preview-inner">
-                        <a href="{{ url_for('show_post', post_id=post.id) }}">
-                            <h2 class="post-title">
-                                {{post.title}}
-                            </h2>
-    <!--                        <h3 class="post-subtitle">-->
-    <!--                            {{post.subtitle}}-->
-    <!--                        </h3>-->
-                        </a>
-<!--                        <p class="post-meta" style="color:#000">Posted by-->
-<!--                            <a href="{{url_for('about')}}">{{post.author.username}}</a>-->
-<!--                            on {{post.date}} </p>>-->
-                        {% if current_user.id == 1 %}
-                        <p class="post-meta" style="color:#000">
-                            <a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
-                        </p>
-                        {% endif %}
+                <a href="{{ url_for('show_post', post_id=post.id) }}">
+                    <div class="post-preview position-relative" style="background-image: url('{{post.img_url}}')">
+                        <div class="post-preview-inner">
+                                <h2 class="post-title"> {{post.title}} </h2>
+                            {% if current_user.id == 1 %}
+                            <p class="post-meta" style="color:#000">
+                                <a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
+                            </p>
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
-
                 {% endfor %}
-
                 <!-- New Post -->
                 {% if current_user.id == 1 %}
                 <div class="clearfix">
