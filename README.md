@@ -6,7 +6,7 @@
 <p>I know what you are thinking, another typical blog. However in this one I added a couple neat features made for Dani.</p>
 <p>As i wanted it to be as easier to use as posible, i made the CRUD system completely codeless</p>
 <p>The design and creation of post is done completely in the user side, being Dani the only superuser with permition to make CRUD operations</p>
-<img src="Blog-Dani/crear_post.jpeg" width="500px">
+<img src="crear_post.jpeg" width="500px">
 
 <h3>Other cool features include:</h3>
 <ol>
