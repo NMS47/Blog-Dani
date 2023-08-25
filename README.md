@@ -2,7 +2,7 @@
 
 <h3>This is the personal blog for Dani Dimotta, made customly for her.</h3>
 <p>Go check it out: <a href="https://danidimotta.com/">danidimotta.com</a></p>
-<img src="Blog-Dani/blog-dani.jpeg" width="500px">
+<img src="blog-dani.jpeg" width="500px">
 <p>I know what you are thinking, another typical blog. However in this one I added a couple neat features made for Dani.</p>
 <p>As i wanted it to be as easier to use as posible, i made the CRUD system completely codeless</p>
 <p>The design and creation of post is done completely in the user side, being Dani the only superuser with permition to make CRUD operations</p>
