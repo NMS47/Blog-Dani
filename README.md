@@ -1,6 +1,6 @@
 <h1>Dani Blog</h1>
     <h3>This is Dani Dimotta's personal blog, custom-made just for her.</h3>
-    <p>Check it out: <a href="https://danidimotta.com/">danidimotta.com</a></p>
+    <p>Check it out: <a href="https://danidimotta-blog.up.railway.app/">danidimotta-blog.up.railway.app</a></p>
     <img src="blog-dani.jpeg" width="500px">
     <p>Are you thinking, "Another typical blog?" Well, hold on! This one comes with a couple of cool features tailored specifically for Dani.</p>
     <p>Since ease of use is a priority, I've implemented a completely codeless CRUD system.</p>
